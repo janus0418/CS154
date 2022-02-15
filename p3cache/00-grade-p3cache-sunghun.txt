@@ -1,0 +1,24 @@
+sunghun p3cache grade: 0/100 
+ 
+https://phoenixforge.cs.uchicago.edu/svn/sunghun-cs154-spr-20/p3cache 
+Grading revision: 63 
+
+Comments: Code failed to compile using gcc on CSIL machine.  As stated in the assignment description, code that does not compile will receive no credit. 
+
+$ make
+gcc -g -Wall -Werror -std=c99 -o csim csim.c cachelab.c -lm
+csim.c: In function ‘main’:
+csim.c:113:19: error: implicit declaration of function ‘getopt’ [-Werror=implicit-function-declaration]
+  113 |     while ((flags=getopt(argc,argv,"s:E:b:t:")) != -1 )
+      |                   ^~~~~~
+csim.c:118:38: error: ‘optarg’ undeclared (first use in this function)
+  118 |             set_index_bit_num = atoi(optarg);
+      |                                      ^~~~~~
+csim.c:118:38: note: each undeclared identifier is reported only once for each function it appears in
+csim.c:156:19: error: implicit declaration of function ‘getline’ [-Werror=implicit-function-declaration]
+  156 |     while((read = getline(&line, &length, trace_file)) != -1)
+      |                   ^~~~~~~
+cc1: all warnings being treated as errors
+make: *** [Makefile:15: csim] Error 1
+
+Final Grade: 99
